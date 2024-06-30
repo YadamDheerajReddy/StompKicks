@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.navbar-logo a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 10;
+    width: 200px;
+}
+
+.menu-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: #333;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #00aaff;
+    color: #fff;
+}
+
+.navbar-menu a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.navbar-menu a:hover {
+    color: #00aaff;
+    font-weight: 600;
+}
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    position: relative;
+    transition: width 0.3s ease-in-out;
+    width: 150px;
+}
+
+.search-bar input {
+    border: none;
+    padding: 0.5rem;
+    outline: none;
+    color: #000;
+    background-color: transparent;
+    width: 100%;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #000;
+}
+
+.search-bar:hover {
+    width: 250px;
+}
+
+.navbar-icons i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #000;
+    transition: color 0.3s;
+}
+
+.navbar-icons i:hover {
+    color: #00aaff;
+}
+
+.profile-icon {
+    position: relative;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 10;
+    width: 250px;
+    border: 1px solid #ccc;
+}
+
+.profile-icon.clicked .profile-dropdown {
+    display: block;
+}
+
+.profile-dropdown a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: #333;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.profile-dropdown a:hover {
+    background-color: #00aaff;
+    color: #fff;
+}
+
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.auth-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.auth-button.register-button {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.auth-button:hover {
+    background-color: #007acc;
+    color: #fff;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.hamburger.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-menu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .navbar-menu a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .navbar-icons {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
